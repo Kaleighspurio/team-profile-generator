@@ -2,6 +2,7 @@
 
 const Employee = require('./Employee');
 
+// This extends the Employee class to make a Manager
 class Manager extends Employee {
     constructor(name, id, email, officeNumber) {
         super(name, id, email);
@@ -12,3 +13,6 @@ class Manager extends Employee {
         return "Manager";
     }
 }
+
+// const Bob = new Manager("Bob", 12, 'bob@bob.com', 13);
+// console.log(Bob);
