@@ -136,7 +136,7 @@ const addEngineer = () => {
 const addIntern = () => {
     inquirer.prompt(internQuestions).then((answers) => {
         console.log(answers);
-        checkRoleToAdd(answers);
+        
         const NewIntern = new Intern(
             answers.name,
             answers.id,
@@ -144,7 +144,7 @@ const addIntern = () => {
             answers.school
         )
         pushToArray(NewIntern);
-        console.log(teamMembers);
+        checkRoleToAdd(answers);
     });
 }
 
@@ -155,7 +155,7 @@ const checkRoleToAdd = (answers) => {
     } else if (answers.addrole === "Intern"){
         addIntern();
     } else {
-        return;
+        fs.writeFileSync(outputPath, render(teamMembers), "utf-8");
     }
 }
 
@@ -169,7 +169,7 @@ const pushToArray = (answers) => {
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
 
-//*****  fs.writeFileSync(outputPath, render(teamMembers), "utf-8");
+
 
 
 // After you have your html, you're now ready to create an HTML file using the HTML
