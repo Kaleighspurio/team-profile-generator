@@ -100,9 +100,7 @@ const internQuestions = [
 
 // This starts the inquirer to prompt about the manager.  After answering the manager question the checkRoleToAdd function runs to check whether the user would like to add other employees. It creates a new manager using the manager class, pushes it to the teamMember array and then runs the next function to inquire about the additional employee.
 const startInquirer = () => {
-    inquirer.prompt(managerQuestions).then((answers) => {
-        console.log(answers);
-        checkRoleToAdd(answers);
+    inquirer.prompt(managerQuestions).then((answers) => { 
         const NewManager = new Manager(
             answers.name,
             answers.id,
@@ -110,18 +108,15 @@ const startInquirer = () => {
             answers.officeNumber
         );
         pushToArray(NewManager);
+        checkRoleToAdd(answers);
     });
 }
 
 startInquirer();
 
-render(teamMembers);
-
 // This runs the inquirer questions for the Engineer role, creates a new engineer with the information provided, pushes it to the teamMember array and then checks whether the user wants to add more employees, then runs the next function if they choose to add another employee.
 const addEngineer = () => {
     inquirer.prompt(engineerQuestions).then((answers) => {
-        console.log(answers);
-        checkRoleToAdd(answers);
         const NewEngineer = new Engineer(
             answers.name,
             answers.id,
@@ -129,14 +124,13 @@ const addEngineer = () => {
             answers.github
         )
         pushToArray(NewEngineer);
+        checkRoleToAdd(answers);
     });
 }
 
 // This runs the inquirer questions for the intern role, creates a new intern using the intern class, pushes the new intern to the teamMembers array and then checks whether the user wants to add more employees.
 const addIntern = () => {
     inquirer.prompt(internQuestions).then((answers) => {
-        console.log(answers);
-        
         const NewIntern = new Intern(
             answers.name,
             answers.id,
@@ -163,27 +157,3 @@ const checkRoleToAdd = (answers) => {
 const pushToArray = (answers) => {
     teamMembers.push(answers);
 }
-
-
-// After the user has input all employees desired, call the `render` function (required
-// above) and pass in an array containing all employee objects; the `render` function will
-// generate and return a block of HTML including templated divs for each employee!
-
-
-
-
-// After you have your html, you're now ready to create an HTML file using the HTML
-// returned from the `render` function. Now write it to a file named `team.html` in the
-// `output` folder. You can use the variable `outputPath` above target this location.
-// Hint: you may need to check if the `output` folder exists and create it if it
-// does not.
-
-// HINT: each employee type (manager, engineer, or intern) has slightly different
-// information; write your code to ask different questions via inquirer depending on
-// employee type.
-
-// HINT: make sure to build out your classes first! Remember that your Manager, Engineer,
-// and Intern classes should all extend from a class named Employee; see the directions
-// for further information. Be sure to test out each class and verify it generates an
-// object with the correct structure and methods. This structure will be crucial in order
-// for the provided `render` function to work! ```
