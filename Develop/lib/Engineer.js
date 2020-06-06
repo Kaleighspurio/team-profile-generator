@@ -16,3 +16,8 @@ class Engineer extends Employee {
         return "Engineer";
     }
 }
+
+module.exports = Engineer;
+
+
+// ****We need to make new Engineer for the info if it is put in the inquirer

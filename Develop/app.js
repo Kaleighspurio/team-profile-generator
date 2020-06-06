@@ -10,6 +10,8 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+const teamMembers = [];
+
 const managerQuestions = [
     {
         type: "input",
@@ -103,6 +105,7 @@ const startInquirer = () => {
     inquirer.prompt(managerQuestions).then((answers) => {
         console.log(answers);
         checkRoleToAdd(answers);
+        pushToArray(answers);
     });
 }
 
@@ -113,6 +116,7 @@ const addEngineer = () => {
     inquirer.prompt(engineerQuestions).then((answers) => {
         console.log(answers);
         checkRoleToAdd(answers);
+        pushToArray(answers);
     });
 }
 
@@ -121,6 +125,7 @@ const addIntern = () => {
     inquirer.prompt(internQuestions).then((answers) => {
         console.log(answers);
         checkRoleToAdd(answers);
+        pushToArray(answers);
     });
 }
 
@@ -135,11 +140,18 @@ const checkRoleToAdd = (answers) => {
     }
 }
 
+// Make a function to run in function that pushes the info to teamMembers array
+const pushToArray = (answers) => {
+    teamMembers.push(answers);
+}
+
+// ****We need to make new Engineer for the info if it is put in the inquirer   ******
+
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
 
-// fs.writeFileSync(outputPath, render(teamMembers), "utf-8");
+//*****  fs.writeFileSync(outputPath, render(teamMembers), "utf-8");
 
 
 // After you have your html, you're now ready to create an HTML file using the HTML

@@ -14,5 +14,4 @@ class Manager extends Employee {
     }
 }
 
-// const Bob = new Manager("Bob", 12, 'bob@bob.com', 13);
-// console.log(Bob);
+module.exports = Manager;
