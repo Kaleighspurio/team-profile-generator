@@ -8,7 +8,7 @@ class Engineer extends Employee {
         super(name, id, email);
         this.github = github;
     }
-    getGitHub(){
+    getGithub(){
         return this.github;
     }
 
@@ -18,6 +18,3 @@ class Engineer extends Employee {
 }
 
 module.exports = Engineer;
-
-
-// ****We need to make new Engineer for the info if it is put in the inquirer

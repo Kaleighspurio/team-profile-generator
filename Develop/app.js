@@ -111,6 +111,8 @@ const startInquirer = () => {
 
 startInquirer();
 
+render(teamMembers);
+
 // This runs the inquirer questions for the Engineer role, and then checks whether the user wants to add more employees
 const addEngineer = () => {
     inquirer.prompt(engineerQuestions).then((answers) => {
