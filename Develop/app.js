@@ -97,15 +97,19 @@ const internQuestions = [
         choices: ["Engineer", "Intern", "I do not want to add another employee"]
     }
 ]
-// Write code to use inquirer to gather information about the development team members,
-// and to create objects for each team member (using the correct classes as blueprints!)
 
-// This starts the inquirer to prompt about the manager.  After answering the manager question the checkRoleToAdd function runs to check whether the user would like to add other employees, and then runs the corresponding function to inquire about the additional employee.
+// This starts the inquirer to prompt about the manager.  After answering the manager question the checkRoleToAdd function runs to check whether the user would like to add other employees. It creates a new manager using the manager class, pushes it to the teamMember array and then runs the next function to inquire about the additional employee.
 const startInquirer = () => {
     inquirer.prompt(managerQuestions).then((answers) => {
         console.log(answers);
         checkRoleToAdd(answers);
-        pushToArray(answers);
+        const NewManager = new Manager(
+            answers.name,
+            answers.id,
+            answers.email,
+            answers.officeNumber
+        );
+        pushToArray(NewManager);
     });
 }
 
@@ -113,21 +117,34 @@ startInquirer();
 
 render(teamMembers);
 
-// This runs the inquirer questions for the Engineer role, and then checks whether the user wants to add more employees
+// This runs the inquirer questions for the Engineer role, creates a new engineer with the information provided, pushes it to the teamMember array and then checks whether the user wants to add more employees, then runs the next function if they choose to add another employee.
 const addEngineer = () => {
     inquirer.prompt(engineerQuestions).then((answers) => {
         console.log(answers);
         checkRoleToAdd(answers);
-        pushToArray(answers);
+        const NewEngineer = new Engineer(
+            answers.name,
+            answers.id,
+            answers.email,
+            answers.github
+        )
+        pushToArray(NewEngineer);
     });
 }
 
-// This runs the inquirer questions for the intern role and then checks whether the user wants to add more employees
+// This runs the inquirer questions for the intern role, creates a new intern using the intern class, pushes the new intern to the teamMembers array and then checks whether the user wants to add more employees.
 const addIntern = () => {
     inquirer.prompt(internQuestions).then((answers) => {
         console.log(answers);
         checkRoleToAdd(answers);
-        pushToArray(answers);
+        const NewIntern = new Intern(
+            answers.name,
+            answers.id,
+            answers.email,
+            answers.school
+        )
+        pushToArray(NewIntern);
+        console.log(teamMembers);
     });
 }
 
@@ -142,12 +159,11 @@ const checkRoleToAdd = (answers) => {
     }
 }
 
-// Make a function to run in function that pushes the info to teamMembers array
+// function that pushes the info to teamMembers array
 const pushToArray = (answers) => {
     teamMembers.push(answers);
 }
 
-// ****We need to make new Engineer for the info if it is put in the inquirer   ******
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
