@@ -14,7 +14,7 @@ Here is a sample of the command line prompts:
 ![inquirer prompts](Assets/inquirer-prompts.png)
 
 Here is how that information is rendered:
-![My Team HTML](Assets/MyTeam-screenshot.png)
+![My Team HTML](Assets/team-pro-gen-screenshot.png)
 
 Here is a demo:
 ![Demo of the application in action](https://media.giphy.com/media/gK0eP8MRSNK4bRag6H/giphy.gif)

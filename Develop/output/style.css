@@ -1,0 +1,34 @@
+body {
+    background-color: #cad2c5;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.team-heading {
+    background-color: #52796f;
+    color: #cad2c5;
+}
+
+.card {
+    margin: 5px;
+    background-color: #84a98c;
+}
+
+.list-group-item {
+    background-color: #84a98c;
+    color: #2f3e46;
+    text-decoration: none;
+}
+
+a {
+    color: #2f3e46;
+}
+
+a:hover {
+    color: #cad2c5;
+    text-decoration: none;
+}
+
+.card-header {
+    background-color: #354f52;
+    color: #cad2c5;
+}
